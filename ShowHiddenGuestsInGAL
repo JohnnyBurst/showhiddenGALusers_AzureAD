@@ -1,0 +1,5 @@
+Connect-AzureAD -TenantId ****
+#get Tenant ID from Azure>Azure AD>Properties>Tenant ID>
+Get-AzureADUser -Filter "UserType eq 'Guest'" | Set-AzureADUser -ShowInAddressList $true
+#To ensure non-intended guests do not appear within the GAL after this process, access each Guest account within the Azure AD environment, set get Object ID number
+Set-AzureADUser -ObjectId de7da660-b3bb-4773-86f3-3a0095ffa7ee -ShowInAddressList $false
